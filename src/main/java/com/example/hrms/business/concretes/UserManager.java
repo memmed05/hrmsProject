@@ -33,4 +33,11 @@ public class UserManager implements UserService {
             return new ErrorResult("wrong data");
         }
     }
+
+    @Override
+    public DataResult<User> findByEmail(String email) {
+        return new SuccessDataResult<User>(
+                "data found",this.userRepository.findByEmail(email)
+        );
+    }
 }
